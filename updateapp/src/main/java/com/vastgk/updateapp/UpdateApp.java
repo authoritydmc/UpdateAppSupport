@@ -425,6 +425,7 @@ Button updatebtn=updatedial.findViewById(R.id.dialogue_update_updatebtn);
                                                 "\nCurrent Version: " + currentVersion;
                                         textView.setText(str);
                                         updatebtn.setOnClickListener(v->{
+                                            if (updatedial.isShowing())updatedial.dismiss();
                                             context.startActivity(new Intent(context,UpdateApp.class));
                                         });
                                         updatedial.setCancelable(true);
