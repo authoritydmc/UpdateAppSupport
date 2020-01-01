@@ -54,7 +54,7 @@ This Library aims to help newbie developers to Push Update to their app without 
 ##### 2.1 Call via  method 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
- where **currentVersionname** can be Passed via Either using **BuildConfig.CurrentVersion** or
+ where **currentVersionname** can be Passed via Either using **BuildConfig.VersionName** or
  via calling `getCurrentVersion();`
  ```
  private String getCurrentVersion() {
