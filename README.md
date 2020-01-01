@@ -84,14 +84,14 @@ This Library aims to help newbie developers to Push Update to their app without 
  
  ## Firebase Update node Field and their usuage
  
- 1. **name** :- name of your app
- 2. **isforced** :- Whether the Current Version is forced .so that app cannot run without updating..
+ 1. **name**  `String`:- name of your app `
+ 2. **isforced** `boolean` :- Whether the Current Version is forced .so that app cannot run without updating.. 
  note it requires calling to checkupdate method inside Main or any parent activity
- 3. **version** :-what will be version number of next update (All update logic depend on this number .)
+ 3. **version**  `String`:-what will be version number of next update (All update logic depend on this number .)
  choose any higher number than current build version to allow update 
- 4. **size** :- size of next update app file
+ 4. **size** ` String`:- size of next update app file
  
- 5. **app_download_url** :-url of the apk file
+ 5. **app_download_url** ` String`:-url of the apk file
  
- 6. **icon_url** :- url of icon of app 
+ 6. **icon_url** ` String`:- url of icon of app 
  
