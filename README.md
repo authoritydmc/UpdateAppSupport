@@ -21,7 +21,7 @@
        }
   ```
   
-  and 
+  **and **
   
   ```
   
@@ -39,7 +39,7 @@
  
  
  ```
- ** and
+ **and**
  
  ```
  	dependencies {
@@ -75,7 +75,8 @@
     }
 ```
 **or**
-###### Start the Activity via Intent
+ 
+##### Start the Activity via Intent
  > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
  
