@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "955315875683",
+    "firebase_url": "https://updateappsupport.firebaseio.com",
+    "project_id": "updateappsupport",
+    "storage_bucket": "updateappsupport.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955315875683:android:e9f6ade723705d16fdad56",
+        "android_client_info": {
+          "package_name": "authoritydmc.updateapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955315875683-ariclfiqir2k4h8msa9qtd8r5fklgbb9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "authoritydmc.updateapp",
+            "certificate_hash": "beeeaea10e3f2d3f48186902bb4aab9b6c3d7d20"
+          }
+        },
+        {
+          "client_id": "955315875683-b7a8hgmdparr93aaqsm5ao8ek531gr81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTZ-mve9ffE-PK_O8pdicJlPRo8VoWuhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955315875683-b7a8hgmdparr93aaqsm5ao8ek531gr81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

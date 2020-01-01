@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+
+    tools:context=".UpdateApp">
+
+    <ImageView
+        android:id="@+id/update_app_ico"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+
+        android:src="@drawable/ic_scan_24dp" />
+
+    <TextView
+        android:id="@+id/update_app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="APPNAME"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:textAlignment="center"
+        android:id="@+id/update_app_size"
+        android:textSize="20sp"
+        android:text="SIZE"/>
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:textAlignment="center"
+        android:clickable="true"
+        android:textSize="20sp"
+
+        android:textColor="#009688"
+        android:linksClickable="true"
+        android:id="@+id/update_app_url"
+        android:text="url"/>
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+
+        android:id="@+id/update_app_version"
+        android:text="APP version"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_downloadBtn"
+        android:layout_gravity="center"
+        android:text="Download "
+        android:padding="8dp"
+        android:background="@drawable/draw_button_border"
+        />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:minHeight="50dp"
+        android:visibility="gone"
+        android:minWidth="200dp"
+
+        android:progress="0" />
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/update_app_downloadinfo"
+        android:textSize="30sp"
+        android:fontFamily="@font/alex_brush"
+android:visibility="gone"
+        android:background="@drawable/draw_button_border"
+        android:text="Downloaded"/>
+
+</LinearLayout>

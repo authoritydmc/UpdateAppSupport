@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00796B"
+    >
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="71dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Update Available"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        android:background="#FFF">
+
+        <TextView
+            android:id="@+id/dialogue_update_avail_detailtxtview"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:fontFamily="@font/annie_use_your_telescope"
+            android:text="description of update"
+            android:textStyle="bold"
+         android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="#00796B"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+</LinearLayout>
