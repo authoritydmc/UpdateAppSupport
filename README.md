@@ -1,17 +1,17 @@
 # UpdateAppSupport
 
 
-# Basic Requirement
+## Basic Requirement
 
 
 
-step 0:
+### step 0:
   Connect your app to Firebase and Enable Realtime Database
 
 
     while enabling Realtime Database try in `test mode` i.e both read and write permission are true
 
-1. Goto your project Level Build.gradle and add following
+### 1. Goto your project Level Build.gradle and add following
 
   ```
   dependencies {
@@ -31,7 +31,7 @@ step 0:
 		}
   
   ```
- 2. Goto Your App level Build.gradle and add the Follwing
+### 2. Goto Your App level Build.gradle and add the Follwing
  
  ```
  apply plugin: 'com.google.gms.google-services' //this is required 2
@@ -46,13 +46,13 @@ step 0:
 	        implementation 'com.github.authoritydmc:UpdateAppSupport:0.1.0'
 	}
  ```
- # How to use
+ ## How to use
  
- **step 1:**
+ ### step 1:
 >  import com.vastgk.updateapp.UpdateApp;
  
- **step 2:**
- **Call via  method **
+### step 2:
+##### Call via  method 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
  where currentVersionname can be Passed via Either using **BuildConfig.CurrentVersion** or
@@ -74,15 +74,15 @@ step 0:
 
     }
 ```
-or
- **Start the Activity via Intent**
+**or**
+###### Start the Activity via Intent
  > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
  
  
  
  
- # Firebase Update node Field and their usuage
+ ## Firebase Update node Field and their usuage
  
  1. **name** :- name of your app
  2. **isforced** :- Whether the Current Version is forced .so that app cannot run without updating..
