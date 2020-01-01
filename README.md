@@ -89,7 +89,7 @@ This Library aims to help newbie developers to Push Update to their app without 
  note it requires calling to checkupdate method inside Main or any parent activity
  3. **version** :-what will be version number of next update (All update logic depend on this number .)
  choose any higher number than current build version to allow update 
- 4.**size** :- size of next update app file
+ 4. **size** :- size of next update app file
  
  5. **app_download_url** :-url of the apk file
  
