@@ -39,10 +39,10 @@ This Library aims to help newbie developers to Push Update to their app without 
  
  ```
  **and**
- 
+ please use the latest Release version to ensure Compability 
  ```
  	dependencies {
-	        implementation 'com.github.authoritydmc:UpdateAppSupport:0.1.0'
+	        implementation 'com.github.authoritydmc:UpdateAppSupport:0.2.0'
 	}
  ```
  ## How to use
