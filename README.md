@@ -5,8 +5,7 @@
 
 
 
-### 1. :
-  Connect your app to Firebase and Enable Realtime Database
+### 1. Connect your app to Firebase and Enable Realtime Database
 
 
     while enabling Realtime Database try in `test mode` i.e both read and write permission are true
