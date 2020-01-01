@@ -32,6 +32,7 @@ import androidx.core.content.FileProvider;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,15 +50,14 @@ import java.net.URLConnection;
 
 public class UpdateApp extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_WRITE_STORAGE = 7;
-    private static DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
     private static Update_MODEL updateDetails = null;
     private TextView nametxtView, sizetxtView, versiontxtView, downloadurltxtView, dwnldInfotxtv;
     private Button btnDownload;
     private ImageView iconImgView;
     boolean isChecking = false;
     boolean isDownloadSuccess = false;
-    String fileProviderName = "com.vastgk.stampsharer.fileprovider";
-
+    String fileProviderName = ".fileprovider";
+private  static final String TAG="UPDATESUPPORT";
     private ProgressBar progressBar;
     String filename;
 
@@ -65,7 +65,7 @@ public class UpdateApp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_app);
-
+FirebaseApp.initializeApp(UpdateApp.this);
         init();
         toggleUIvisibility(false);
 
@@ -214,8 +214,8 @@ public class UpdateApp extends AppCompatActivity {
     }
 
     private void checkforupdate() {
-
-        rootref.addValueEventListener(new ValueEventListener() {
+DatabaseReference reference=FirebaseDatabase.getInstance().getReference();
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -384,20 +384,13 @@ btnDownload.getBackground().setAlpha(0);
 
 
     public static void checkupdate(Context context, String currentVersion, boolean isShowDialogueBox) {
-        DatabaseReference reference = null;
-        try {
-  reference   = FirebaseDatabase.getInstance().getReference();
-}
-catch (Exception e)
-{
-    Toast.makeText(context, "Please Enable realtime Database in Firebase Console", Toast.LENGTH_SHORT).show();
-return;
-}
-reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseApp.initializeApp(context);
+        DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
+        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild("update")) {
-                    reference.child("update").addListenerForSingleValueEvent(new ValueEventListener() {
+                    rootref.child("update").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             boolean isforced = false;
@@ -450,11 +443,14 @@ reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     rootref.child("update").setValue(new Update_MODEL("app name here", "app size here ", "link of apk file", "version name ", "icon url")).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            rootref.child("update").child("isforced").setValue(false);
+                            Log.d(TAG, "Please Goto Firebase Database to Update the Details of Update Node ");
                             Toast.makeText(context, "Please Goto Firebase Database to Update the Details of Update Node", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            Log.d(TAG, "Can't Initialize update module due to lack of permission");
                             Toast.makeText(context, "Can't Initialize update module due to lack of permission", Toast.LENGTH_SHORT).show();
                         }
                     });
