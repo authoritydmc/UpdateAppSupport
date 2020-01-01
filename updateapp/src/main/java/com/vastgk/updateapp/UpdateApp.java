@@ -54,12 +54,12 @@ public class UpdateApp extends AppCompatActivity {
     private TextView nametxtView, sizetxtView, versiontxtView, downloadurltxtView, dwnldInfotxtv;
     private Button btnDownload;
     private ImageView iconImgView;
-    boolean isChecking = false;
-    boolean isDownloadSuccess = false;
-    String fileProviderName = ".fileprovider";
+   private boolean isChecking = false;
+  private   boolean isDownloadSuccess = false;
+   private static String fileProviderName = "";
 private  static final String TAG="UPDATESUPPORT";
     private ProgressBar progressBar;
-    String filename;
+   private String filename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,8 @@ private  static final String TAG="UPDATESUPPORT";
 FirebaseApp.initializeApp(UpdateApp.this);
         init();
         toggleUIvisibility(false);
-
+        fileProviderName=getPackageName()+".fileprovider";
+        Toast.makeText(this, fileProviderName, Toast.LENGTH_SHORT).show();
         checkforupdate();
 
     }
@@ -361,13 +362,16 @@ btnDownload.getBackground().setAlpha(0);
     }
 
     private void installDownloadedAPP(File file) {
+
+
         btnDownload.setText("Install");
 
 
         Intent intent;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Uri apkUri = FileProvider.getUriForFile(UpdateApp.this, fileProviderName, file);
-
+            Log.d(TAG, "installDownloadedAPP: "+apkUri.getAuthority());
+            Log.d(TAG, "installDownloadedAPP: p"+fileProviderName);
             Toast.makeText(this, "" + apkUri.normalizeScheme().getPath(), Toast.LENGTH_SHORT).show();
             intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
             intent.setData(apkUri);
@@ -385,6 +389,8 @@ btnDownload.getBackground().setAlpha(0);
 
     public static void checkupdate(Context context, String currentVersion, boolean isShowDialogueBox) {
         FirebaseApp.initializeApp(context);
+        fileProviderName=context.getPackageName()+".fileprovider";
+
         DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
         rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

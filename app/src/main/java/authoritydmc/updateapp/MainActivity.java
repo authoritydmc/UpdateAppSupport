@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
       //  FirebaseApp.initializeApp(MainActivity.this);
-       // startActivity(new Intent(MainActivity.this,com.vastgk.updateapp.UpdateApp.class));
-        UpdateApp.checkupdate(MainActivity.this, BuildConfig.VERSION_NAME,true);
+        startActivity(new Intent(MainActivity.this,com.vastgk.updateapp.UpdateApp.class));
+//        UpdateApp.checkupdate(MainActivity.this, BuildConfig.VERSION_NAME,true);
     }
 }
