@@ -5,13 +5,13 @@
 
 
 
-### step 0:
+### 1. :
   Connect your app to Firebase and Enable Realtime Database
 
 
     while enabling Realtime Database try in `test mode` i.e both read and write permission are true
 
-### 1. Goto your project Level Build.gradle and add following
+### 2. Goto your project Level Build.gradle and add following
 
   ```
   dependencies {
@@ -31,7 +31,7 @@
 		}
   
   ```
-### 2. Goto Your App level Build.gradle and add the Follwing
+### 3. Goto Your App level Build.gradle and add the Following
  
  ```
  apply plugin: 'com.google.gms.google-services' //this is required 2
