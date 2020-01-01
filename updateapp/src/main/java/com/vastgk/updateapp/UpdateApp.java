@@ -386,7 +386,7 @@ btnDownload.getBackground().setAlpha(0);
     }
 
 
-    public static void checkupdate(Context context, String currentVersion, boolean isShowDialogueBox) {
+    public static void checkupdate(Context context, String currentVersion, boolean shouldShowDialogueBox) {
         FirebaseApp.initializeApp(context);
         fileProviderName=context.getPackageName()+".fileprovider";
 
@@ -412,7 +412,7 @@ btnDownload.getBackground().setAlpha(0);
                                     context.startActivity(new Intent(context, UpdateApp.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                                     ((Activity) context).finish();
                                 } else {
-                                    if (!isShowDialogueBox)
+                                    if (!shouldShowDialogueBox)
                                         Toast.makeText(context, "Update Available", Toast.LENGTH_SHORT).show();
                                     else {
                                         //Show Dialogue BOx of Update available
