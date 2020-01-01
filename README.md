@@ -42,7 +42,7 @@ This Library aims to help newbie developers to Push Update to their app without 
  please use the latest Release version to ensure Compability 
  ```
  	dependencies {
-	        implementation 'com.github.authoritydmc:UpdateAppSupport:0.1.0'
+	        implementation 'com.github.authoritydmc:UpdateAppSupport:0.2.2'
 	}
  ```
  ## How to use
@@ -55,7 +55,7 @@ This Library aims to help newbie developers to Push Update to their app without 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
  where **currentVersionname** can be Passed via Either using **BuildConfig.VersionName** or
- via calling `getCurrentVersion();`
+ via calling `getCurrentVersion();` method getCurrentVersion() should be implemented first . 
  ```
  private String getCurrentVersion() {
         //get the current version number and name
