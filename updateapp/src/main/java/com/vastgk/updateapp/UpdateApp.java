@@ -372,7 +372,6 @@ btnDownload.getBackground().setAlpha(0);
             Uri apkUri = FileProvider.getUriForFile(UpdateApp.this, fileProviderName, file);
             Log.d(TAG, "installDownloadedAPP: "+apkUri.getAuthority());
             Log.d(TAG, "installDownloadedAPP: p"+fileProviderName);
-            Toast.makeText(this, "" + apkUri.normalizeScheme().getPath(), Toast.LENGTH_SHORT).show();
             intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
             intent.setData(apkUri);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
