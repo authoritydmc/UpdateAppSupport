@@ -52,12 +52,12 @@ step 0:
  import com.vastgk.updateapp.UpdateApp;
  
  step 2:
- ***Call via  method ***
- > UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);
+ **Call via  method **
+ > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
  or
  **Start the Activity via Intent**
- > StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));
+ > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
  
  
