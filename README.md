@@ -20,7 +20,7 @@ This Library aims to help newbie developers to Push Update to their app without 
        }
   ```
   
-  **and **
+  and
   
   ```
   
