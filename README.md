@@ -1,5 +1,5 @@
 # UpdateAppSupport
-
+This Library aims to help newbie developers to Push Update to their app without Using Google PlayStore...
 
 ## Basic Requirement
 
@@ -51,11 +51,11 @@
 >  import com.vastgk.updateapp.UpdateApp;
  
 ### step 2:
-##### Call via  method 
+##### 2.1 Call via  method 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
- where currentVersionname can be Passed via Either using **BuildConfig.CurrentVersion** or
- via calling getCurrentVersion();
+ where **currentVersionname** can be Passed via Either using **BuildConfig.CurrentVersion** or
+ via calling `getCurrentVersion();`
  ```
  private String getCurrentVersion() {
         //get the current version number and name
@@ -75,7 +75,7 @@
 ```
 **or**
  
-##### Start the Activity via Intent
+##### 2.2 Start the Activity via Intent
  > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
  
