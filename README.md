@@ -48,14 +48,33 @@ step 0:
  ```
  # How to use
  
- step 1:
- import com.vastgk.updateapp.UpdateApp;
+ **step 1:**
+>  import com.vastgk.updateapp.UpdateApp;
  
- step 2:
+ **step 2:**
  **Call via  method **
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
- or
+ where currentVersionname can be Passed via Either using **BuildConfig.CurrentVersion** or
+ via calling getCurrentVersion();
+ ```
+ private String getCurrentVersion() {
+        //get the current version number and name
+
+        String versionName = "";
+        int versionCode = -1;
+        try {
+            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            versionName = packageInfo.versionName;
+            versionCode = packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return versionName;
+
+    }
+```
+or
  **Start the Activity via Intent**
  > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
