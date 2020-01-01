@@ -35,6 +35,13 @@
             android:textAlignment="center"
             android:textColor="#00796B"
             android:textSize="18sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:id="@+id/dialogue_update_updatebtn"
+            android:layout_gravity="center"
+            android:background="@drawable/draw_button_border"/>
     </LinearLayout>
 
 

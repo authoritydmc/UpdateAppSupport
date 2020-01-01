@@ -419,11 +419,14 @@ btnDownload.getBackground().setAlpha(0);
                                         Dialog updatedial = new Dialog(context);
                                         updatedial.requestWindowFeature(Window.FEATURE_NO_TITLE);
                                         updatedial.setContentView(R.layout.dialogue_update_available);
-
+Button updatebtn=updatedial.findViewById(R.id.dialogue_update_updatebtn);
                                         TextView textView = updatedial.findViewById(R.id.dialogue_update_avail_detailtxtview);
                                         String str = "Available Version: " + finalVersion +
                                                 "\nCurrent Version: " + currentVersion;
                                         textView.setText(str);
+                                        updatebtn.setOnClickListener(v->{
+                                            context.startActivity(new Intent(context,UpdateApp.class));
+                                        });
                                         updatedial.setCancelable(true);
                                         updatedial.show();
 
