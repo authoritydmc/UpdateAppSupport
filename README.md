@@ -48,12 +48,13 @@ This Library aims to help newbie developers to Push Update to their app without 
  ## How to use
 
 ### step 1:
-##### 1.1 Call via  method 
-
  
-###### import the class
+#### 1.1 Call via  method
+ 
+##### import the class
 >  import com.vastgk.updateapp.UpdateApp;
  
+##### call the method now
 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
@@ -78,7 +79,7 @@ This Library aims to help newbie developers to Push Update to their app without 
 ```
 **or**
  
-##### 1.2 Start the Activity via Intent
+#### 1.2 Start the Activity via Intent
  > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
  
