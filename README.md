@@ -99,3 +99,18 @@ This Library aims to help newbie developers to Push Update to their app without 
  
  6. **icon_url** ` String`:- url of icon of app 
  
+ ![sample update node ](https://github.com/authoritydmc/UpdateAppSupport/blob/master/Assets/Screenshot_2020-01-02-22-46-28-91.png)
+ 
+ 
+ 
+ 
+ ### Screenshots
+ 
+ ##### updatecheck method when dialogue box should show is enabled
+ ![checkup date](https://github.com/authoritydmc/UpdateAppSupport/blob/master/Assets/Screenshot_2020-01-02-22-40-31-51_3d5f0dd0cff8ba8714d843155c1b5f56.png)
+ #### Update Activity page
+ 
+ ![update activity](https://github.com/authoritydmc/UpdateAppSupport/blob/master/Assets/Screenshot_2020-01-02-22-40-39-28_3d5f0dd0cff8ba8714d843155c1b5f56.png)
+ 
+ 
+ 
