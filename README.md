@@ -46,12 +46,15 @@ This Library aims to help newbie developers to Push Update to their app without 
 	}
  ```
  ## How to use
+
+### step 1:
+##### 1.1 Call via  method 
+
  
- ### step 1:
+###### import the class
 >  import com.vastgk.updateapp.UpdateApp;
  
-### step 2:
-##### 2.1 Call via  method 
+
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
  where **currentVersionname** can be Passed via Either using **BuildConfig.VersionName** or
@@ -75,7 +78,7 @@ This Library aims to help newbie developers to Push Update to their app without 
 ```
 **or**
  
-##### 2.2 Start the Activity via Intent
+##### 1.2 Start the Activity via Intent
  > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
  
  
