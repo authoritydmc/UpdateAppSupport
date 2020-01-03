@@ -48,7 +48,7 @@ This Library aims to help newbie developers to Push Update to their app without 
  ## How to use
  
  ### step 1:
->  import com.vastgk.updateapp.UpdateApp;
+>  import authoritydmc.UpdateApp;
  
 ### step 2:
 ##### 2.1 Call via  method 
@@ -76,7 +76,7 @@ This Library aims to help newbie developers to Push Update to their app without 
 **or**
  
 ##### 2.2 Start the Activity via Intent
- > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
+ > `StartActvitiy(new Intent(context,authoritydmc.UpdateApp.class));`
  
  
  

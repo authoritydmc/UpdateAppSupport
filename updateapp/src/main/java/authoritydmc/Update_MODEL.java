@@ -1,4 +1,4 @@
-package com.vastgk.updateapp;
+package authoritydmc;
 
 import androidx.annotation.Keep;
 

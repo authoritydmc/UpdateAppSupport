@@ -1,4 +1,4 @@
-package com.vastgk.updateapp;
+package authoritydmc;
 
 import android.Manifest;
 import android.app.Activity;
@@ -14,7 +14,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -39,6 +38,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.vastgk.updateapp.R;
 
 import java.io.BufferedInputStream;
 import java.io.File;
