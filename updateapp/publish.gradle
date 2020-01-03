@@ -1,4 +1,5 @@
-classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle'
 group 'authoritydmc'
 version '1.0.0'
@@ -22,8 +23,8 @@ bintray {
     configurations = ['archives']
     override = true
     pkg {
-        repo = 'maven'
-        name = 'UpdateAppSupport'
+        repo = 'UpdateAppSupport'
+        name = 'authoritydmc'
         description = "Deploy Update to Apps without PlayStore account"
         publicDownloadNumbers = true
         licenses = ['Apache-2.0']
