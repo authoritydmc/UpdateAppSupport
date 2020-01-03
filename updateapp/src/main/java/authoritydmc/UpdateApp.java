@@ -69,7 +69,7 @@ FirebaseApp.initializeApp(UpdateApp.this);
         init();
         toggleUIvisibility(false);
         fileProviderName=getPackageName()+".fileprovider";
-        Toast.makeText(this, fileProviderName, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, fileProviderName, Toast.LENGTH_SHORT).show();
         checkforupdate();
 
     }
