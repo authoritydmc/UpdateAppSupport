@@ -79,7 +79,7 @@ For more information read the readme.md
 **or**
  
 #### 1.2 Start the Activity via Intent
- > `StartActvitiy(new Intent(context,UpdateApp.class));`
+ > `StartActvitiy(new Intent(context, authoritydmc.UpdateApp.class));`
  
  
  
@@ -87,9 +87,9 @@ For more information read the readme.md
  
  ## Firebase Update node Field and their usuage
  
- 1. **name**  `String`:- name of your app `
- 2. **isforced** `boolean` :- Whether the Current Version is forced .so that app cannot run without updating.. 
- note it requires calling to checkupdate method inside Main or any parent activity
+ 1. **name**  `String`:- name of your app 
+ 2. **isforced** `boolean` :- Whether the Current Version is forced or not.if isforced is **true** then  app cannot run without updating.. 
+ Please note that this  requires calling to checkupdate method inside Main or any parent activity (base activity )
  3. **version**  `String`:-what will be version number of next update (All update logic depend on this number .)
  choose any higher number than current build version to allow update 
  4. **size** ` String`:- size of next update app file
