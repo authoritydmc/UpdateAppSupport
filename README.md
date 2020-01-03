@@ -31,7 +31,14 @@ For more information read the readme.md
           //this is required1
        }
   ```
-
+  ###### and
+ ```
+   repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+  
+  ```
 
 ### 3. Goto Your App level Build.gradle and add the Following
  
@@ -42,10 +49,11 @@ For more information read the readme.md
  
  ```
  **and**
+
  please use the latest Release version to ensure Compability 
  ```
  	dependencies {
-	        implementation 'authoritydmc:updateapp:1.0.0' 
+	         implementation 'com.github.authoritydmc:UpdateAppSupport:1.0.0'
 		
 	}
  ```
