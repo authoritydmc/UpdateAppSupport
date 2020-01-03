@@ -1,0 +1,39 @@
+classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle'
+group 'authoritydmc'
+version '1.0.0'
+
+project.ext {
+    mavGitUrl = 'https://github.com/authoritydmc/UpdateAppSupport.git'
+    mavProjectName = 'UpdateAppSupport'
+    mavLibraryLicenses = ["Apache-2.0":'http://www.apache.org/licenses/LICENSE-2.0.txt']
+    mavLibraryDescription = "Deploy Update to Apps without PlayStore account"
+    mavPublishToMavenLocal = true
+    mavSiteUrl = 'https://github.com/authoritydmc/UpdateAppSupport'
+}
+
+def properties = new Properties()
+properties.load(new FileInputStream("local.properties"))
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['Production']
+    configurations = ['archives']
+    override = true
+    pkg {
+        repo = 'maven'
+        name = 'UpdateAppSupport'
+        description = "Deploy Update to Apps without PlayStore account"
+        publicDownloadNumbers = true
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/authoritydmc/UpdateAppSupport'
+        version {
+            name = this.version
+            desc = "Version ${this.version}"
+            released = new Date()
+            vcsTag = this.version
+        }
+    }
+}
+
