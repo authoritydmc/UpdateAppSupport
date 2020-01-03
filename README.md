@@ -71,7 +71,7 @@ For more information read the readme.md
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
  where **currentVersionname** can be Passed via Either using **BuildConfig.VersionName** or
- via calling `getCurrentVersion();` method [getCurrentVersion()](#code-for-getCurrentVersion()) should be implemented first . 
+ via calling `getCurrentVersion();` method **[getCurrentVersion()](#code-for-getcurrentversion)** should be implemented first . 
 
 **or**
  
