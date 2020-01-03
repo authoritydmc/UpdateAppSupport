@@ -54,7 +54,7 @@ For more information read the readme.md
  please use the latest Release version to ensure Compability 
  ```
  	dependencies {
-	        implementation 'com.github.authoritydmc:UpdateAppSupport:0.2.2'
+	        implementation 'com.github.authoritydmc:UpdateAppSupport:1.0.0'
 	}
  ```
  ## How to use
@@ -64,7 +64,7 @@ For more information read the readme.md
 #### 1.1 Call via  method
  
 ##### import the class
->  import com.vastgk.updateapp.UpdateApp;
+>  import authoritydmc.UpdateApp;
  
 ##### call the method now
 
@@ -76,7 +76,7 @@ For more information read the readme.md
 **or**
  
 #### 1.2 Start the Activity via Intent
- > `StartActvitiy(new Intent(context,com.vastgk.updateapp.UpdateApp.class));`
+ > `StartActvitiy(new Intent(context,UpdateApp.class));`
  
  
  
