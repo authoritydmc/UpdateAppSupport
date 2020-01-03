@@ -2,7 +2,7 @@
 
 This is very simple project i did.. basically for new to android programming people who do not have play account but want to somehow  deploy necessary update to their app ,,
 
-** This library uses Firebase database...**
+**This library uses Firebase database...**
 
 It will automatically give you a update, function like download the apk file and then  open it automatically to install.. or like whether the update is forced or not....
 If there is an forced update..your app won't run unless user update it.. 
