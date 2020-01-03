@@ -17,10 +17,13 @@ For more information read the readme.md
 
 
 
-### 1. Connect your app to Firebase and Enable Realtime Database
+### 1. Connect your app to Firebase and Enable Realtime Database(at firebase console) 
 
 
-    while enabling Realtime Database try in `test mode` i.e both read and write permission are true
+     
+    
+    after connecting app to Firebase via Android studio,,goto firebase console and navigate to project there and enable realtime database.
+    while  enabling the real time database try in `test mode` i.e both the  read and white permission are true
 
 ### 2. Goto your project Level Build.gradle and add following
 
