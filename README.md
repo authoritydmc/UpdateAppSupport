@@ -71,24 +71,8 @@ For more information read the readme.md
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
  where **currentVersionname** can be Passed via Either using **BuildConfig.VersionName** or
- via calling `getCurrentVersion();` method getCurrentVersion() should be implemented first . 
- ```
- private String getCurrentVersion() {
-        //get the current version number and name
+ via calling `getCurrentVersion();` method [getCurrentVersion()](#code-for-getCurrentVersion()) should be implemented first . 
 
-        String versionName = "";
-        int versionCode = -1;
-        try {
-            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            versionName = packageInfo.versionName;
-            versionCode = packageInfo.versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return versionName;
-
-    }
-```
 **or**
  
 #### 1.2 Start the Activity via Intent
@@ -115,6 +99,29 @@ For more information read the readme.md
  
  
  
+
+ 
+ 
+ ### EXTRAS
+ ##### code for getCurrentVersion()
+  ```
+ private String getCurrentVersion() {
+        //get the current version number and name
+
+        String versionName = "";
+        int versionCode = -1;
+        try {
+            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            versionName = packageInfo.versionName;
+            versionCode = packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return versionName;
+
+    }
+```
+
  
  ### Screenshots
  
@@ -123,6 +130,3 @@ For more information read the readme.md
  #### Update Activity page
  
  ![update activity](https://github.com/authoritydmc/UpdateAppSupport/blob/master/Assets/Screenshot_2020-01-02-22-40-39-28_3d5f0dd0cff8ba8714d843155c1b5f56.png)
- 
- 
- 
