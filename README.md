@@ -67,7 +67,7 @@ For more information read the readme.md
 #### 1.0 import the class
 >  import authoritydmc.UpdateApp;
  
-#### 1.1 Call via  method [checkupdate]()
+#### 1.1 Call via  method [checkupdate](#checkupdatecontext-contextstring-currentversionnameboolean-shouldshowdialog)
 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
