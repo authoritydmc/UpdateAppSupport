@@ -56,7 +56,7 @@ For more information read the readme.md
  please use the latest Release version to ensure Compability 
  ```
  	dependencies {
-	         implementation 'com.github.authoritydmc:UpdateAppSupport:1.0.0'
+	         implementation 'com.github.authoritydmc:UpdateAppSupport:1.0.1'
 		
 	}
  ```
