@@ -101,7 +101,13 @@ For more information read the readme.md
  ![sample update node ](https://github.com/authoritydmc/UpdateAppSupport/blob/master/Assets/Screenshot_2020-01-02-22-46-28-91.png)
  
  
+ ## Method Available (Public use Methods)
  
+ #### checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);
+ where **context** is Context passed from calling Activity
+ **currentVersioname** is Current Build Version of App (ex: "0.1.2")
+ **shouldShowDialog** is a boolean value .if **true** a Dialogue Box appear in the calling activity if there is an update
+ else just a toast is shown if it is **false**
 
  
  
