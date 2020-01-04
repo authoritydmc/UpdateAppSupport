@@ -63,13 +63,11 @@ For more information read the readme.md
  ## How to use
 
 ### step 1:
- 
-#### 1.1 Call via  method
- 
-##### import the class
+
+#### 1.0 import the class
 >  import authoritydmc.UpdateApp;
  
-##### call the method now
+#### 1.1 Call via  method [checkupdate]()
 
  > `UpdateApp.checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);`
  
@@ -104,9 +102,9 @@ For more information read the readme.md
  ## Method Available (Public use Methods)
  
  #### checkupdate(Context context,String currentVersionname,boolean shouldShowDialog);
- where **context** is Context passed from calling Activity
- **currentVersioname** is Current Build Version of App (ex: "0.1.2")
- **shouldShowDialog** is a boolean value .if **true** a Dialogue Box appear in the calling activity if there is an update
+ 1. **context** is Context passed from calling Activity
+ 2. **currentVersioname** is Current Build Version of App (ex: "0.1.2")
+ 3. **shouldShowDialog** is a boolean value .if **true** a Dialogue Box appear in the calling activity if there is an update
  else just a toast is shown if it is **false**
 
  
