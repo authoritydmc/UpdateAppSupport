@@ -38,7 +38,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-import com.vastgk.updateapp.R;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -47,6 +46,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
 public class UpdateApp extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_WRITE_STORAGE = 7;
@@ -54,22 +54,22 @@ public class UpdateApp extends AppCompatActivity {
     private TextView nametxtView, sizetxtView, versiontxtView, downloadurltxtView, dwnldInfotxtv;
     private Button btnDownload;
     private ImageView iconImgView;
-   private boolean isChecking = false;
-  private   boolean isDownloadSuccess = false;
-   private static String fileProviderName = "";
-private  static final String TAG="UPDATESUPPORT";
+    private boolean isChecking = false;
+    private boolean isDownloadSuccess = false;
+    private static String fileProviderName = "";
+    private static final String TAG = "UPDATESUPPORT";
     private ProgressBar progressBar;
-   private String filename;
+    private String filename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_app);
-FirebaseApp.initializeApp(UpdateApp.this);
+        FirebaseApp.initializeApp(UpdateApp.this);
         init();
         toggleUIvisibility(false);
-        fileProviderName=getPackageName()+".fileprovider";
-       // Toast.makeText(this, fileProviderName, Toast.LENGTH_SHORT).show();
+        fileProviderName = getPackageName() + ".fileprovider";
+        // Toast.makeText(this, fileProviderName, Toast.LENGTH_SHORT).show();
         checkforupdate();
 
     }
@@ -164,8 +164,8 @@ FirebaseApp.initializeApp(UpdateApp.this);
         Update_MODEL obj = updateDetails;
 
         if (obj != null) {
-            Log.d("RAAJ", "updateUI: onbj"+obj.getVersion());
-            if (Float.valueOf(obj.getVersion()) > Float.valueOf(currentVersion)) {
+            Log.d("RAAJ", "updateUI: onbj" + obj.getVersion());
+            if (canUpdate(currentVersion,obj.getVersion())) {
                 Toast.makeText(this, "Update Available", Toast.LENGTH_SHORT).show();
                 toggleUIvisibility(true);
                 //load image
@@ -186,7 +186,7 @@ FirebaseApp.initializeApp(UpdateApp.this);
                 });
             } else {
                 Toast.makeText(this, "Already the Latest Version", Toast.LENGTH_SHORT).show();
-                versiontxtView.setText("Version :" +currentVersion);
+                versiontxtView.setText("Version :" + currentVersion);
                 toggleUIvisibility(false);
             }
 
@@ -215,14 +215,14 @@ FirebaseApp.initializeApp(UpdateApp.this);
     }
 
     private void checkforupdate() {
-DatabaseReference reference=FirebaseDatabase.getInstance().getReference();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.hasChild("update")) {
                     updateDetails = dataSnapshot.child("update").getValue(Update_MODEL.class);
-                    Log.d("RAAJ", "onDataChange: +"+getCurrentVersion());
+                    Log.d("RAAJ", "onDataChange: +" + getCurrentVersion());
                     updateUI(updateDetails, getCurrentVersion());
 
                 }
@@ -267,8 +267,8 @@ DatabaseReference reference=FirebaseDatabase.getInstance().getReference();
             progressBar.setProgress(0);
             isDownloadSuccess = false;
             filename = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + updateDetails.getName() + updateDetails.getVersion() + ".apk";
-btnDownload.setEnabled(false);
-btnDownload.getBackground().setAlpha(0);
+            btnDownload.setEnabled(false);
+            btnDownload.getBackground().setAlpha(0);
 
         }
 
@@ -370,8 +370,8 @@ btnDownload.getBackground().setAlpha(0);
         Intent intent;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Uri apkUri = FileProvider.getUriForFile(UpdateApp.this, fileProviderName, file);
-            Log.d(TAG, "installDownloadedAPP: "+apkUri.getAuthority());
-            Log.d(TAG, "installDownloadedAPP: p"+fileProviderName);
+            Log.d(TAG, "installDownloadedAPP: " + apkUri.getAuthority());
+            Log.d(TAG, "installDownloadedAPP: p" + fileProviderName);
             intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
             intent.setData(apkUri);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -388,7 +388,7 @@ btnDownload.getBackground().setAlpha(0);
 
     public static void checkupdate(Context context, String currentVersion, boolean shouldShowDialogueBox) {
         FirebaseApp.initializeApp(context);
-        fileProviderName=context.getPackageName()+".fileprovider";
+        fileProviderName = context.getPackageName() + ".fileprovider";
 
         DatabaseReference rootref = FirebaseDatabase.getInstance().getReference();
         rootref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -407,7 +407,7 @@ btnDownload.getBackground().setAlpha(0);
                             String finalVersion = null;
                             if (dataSnapshot.hasChild("version"))
                                 finalVersion = dataSnapshot.child("version").getValue(String.class);
-                            if (finalVersion != null && Float.valueOf(currentVersion) < Float.valueOf(finalVersion)) {
+                            if (finalVersion != null && canUpdate(currentVersion,finalVersion)) {
                                 if (isforced) {
                                     context.startActivity(new Intent(context, UpdateApp.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                                     ((Activity) context).finish();
@@ -419,19 +419,17 @@ btnDownload.getBackground().setAlpha(0);
                                         Dialog updatedial = new Dialog(context);
                                         updatedial.requestWindowFeature(Window.FEATURE_NO_TITLE);
                                         updatedial.setContentView(R.layout.dialogue_update_available);
-Button updatebtn=updatedial.findViewById(R.id.dialogue_update_updatebtn);
+                                        Button updatebtn = updatedial.findViewById(R.id.dialogue_update_updatebtn);
                                         TextView textView = updatedial.findViewById(R.id.dialogue_update_avail_detailtxtview);
                                         String str = "Available Version: " + finalVersion +
                                                 "\nCurrent Version: " + currentVersion;
                                         textView.setText(str);
-                                        updatebtn.setOnClickListener(v->{
-                                            if (updatedial.isShowing())updatedial.dismiss();
-                                            context.startActivity(new Intent(context,UpdateApp.class));
+                                        updatebtn.setOnClickListener(v -> {
+                                            if (updatedial.isShowing()) updatedial.dismiss();
+                                            context.startActivity(new Intent(context, UpdateApp.class));
                                         });
                                         updatedial.setCancelable(true);
                                         updatedial.show();
-
-
 
 
                                     }
@@ -472,6 +470,51 @@ Button updatebtn=updatedial.findViewById(R.id.dialogue_update_updatebtn);
 
             }
         });
+
+    }
+    private static boolean canUpdate(String oldversion,String newVersion)
+    {
+        boolean flag=true;
+        ArrayList<Integer> oldVersionSplit=new ArrayList<>();
+        ArrayList<Integer> newVersionSplit=new ArrayList<>();
+        // String [] versionSplit=version.split(".");
+        for(String s:oldversion.split("\\."))
+        {
+            oldVersionSplit.add(Integer.parseInt(s));
+        }
+        for(String s:newVersion.split("\\."))
+        {
+            newVersionSplit.add(Integer.valueOf(s));
+        }
+        int old_len=oldVersionSplit.size();
+        int new_len=newVersionSplit.size();
+        int oldVal=0;
+        int newVal=0;
+        for (int i=0;i<new_len;i++)
+        {   newVal=newVersionSplit.get(i);
+
+            if(i>=old_len)
+            {
+                oldVal=0;
+
+            }else
+                oldVal=oldVersionSplit.get(i);
+            if(newVal>oldVal)
+            {
+                flag=true;
+                break;
+            }
+            if(newVal<oldVal)
+            {
+                flag=false;
+                break;
+            }
+            if(i==new_len-1 && newVal==oldVal)
+                flag=false;
+
+        }
+        return flag;
+
 
     }
 
